@@ -1,0 +1,353 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* navbar */
+.navbar{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+.navbar::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.navbar ul{
+    display: flex;
+    list-style: none;
+}
+.navbar ul li{
+    font-size: 1.1rem;
+}
+.navbar ul li a{
+    padding: 5px 20px;
+    text-decoration: none;
+    color: white;
+}
+.navbar ul li a:hover{
+    border-bottom: 2px solid yellow;
+}
+
+/* Home Section */
+#home{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+#home::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(wallpaper\ marz.jpg) center center/cover;
+    height: 720px;
+    width: 100%;
+    z-index: -1;
+    opacity: .8;
+}
+.heading{
+    color: white;
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    transform: scale(1,1,3);
+}
+
+/* About Section */
+#about{
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    background-color: navajowhite;
+}
+#about h1{
+    color: black;
+    margin: 55px;
+}
+.about{
+    display: flex;
+}
+.about img{
+    width: 500px;
+    height: 400px;
+    padding: 0px 30px;
+}
+.name{
+    padding: 10px;
+}
+.name h2{
+    font-size: 2rem;
+}
+.name p{
+    font-size: 1.2rem;
+}
+
+/* Education Section */
+#education{
+    display: flex;
+    flex-direction: column;
+    background-color: burlywood;
+    height: 900px;
+}
+#education h1{
+    margin: 60px;
+}
+.columns{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-left: 50px;
+}
+.box{
+    height: 350px;
+    width: 500px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+}
+.box h2{
+    color:white;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+.box p{
+    color: white;
+    font-size: 1.1rem;
+}
+.box img{
+    height: 170px;
+}
+.text h3{
+    color: black;
+    font-size: 2rem;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 170px;
+    margin-top: -170px;
+}
+.text h4{
+    color: black;
+    font-size: 2rem;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 310px;
+    margin-top: -170px;
+}
+
+/* Gallery Section */
+#gallery{
+    display: flex;
+    flex-direction: column;
+    height: 900px;
+    background-color: antiquewhite;
+}
+#gallery h1{
+    color: black;
+}
+input{
+    display: none;
+}
+.container{
+    width: 100%;
+}
+h1{
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+}
+.top-content{
+    background-color: wheat;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px burlywood;
+}
+h3{
+    height: 100%;
+    background-color: rgb(225, 220, 220);
+    line-height: 60px;
+    padding: 0 50px;
+    color: white;
+}
+label{
+    display: inline-block;
+    height: 100%;
+    margin: 0 20px;
+    line-height: 60px;
+    font-size: 18px;
+    color: black;
+    cursor: pointer;
+    transition: .5s;
+}
+label :hover{
+    color: black;
+}
+.photo-gallery{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+.pic{
+    position: relative;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px lightgray;
+    cursor: pointer;
+    transition: .5s;
+}
+.pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: .5s;
+}
+.pic::before{
+    content: "photo gallery";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: .3s;
+    transition-delay: .2s;
+}
+.pic::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: .3s
+}
+.pic:hover::after{
+    height: 100%;
+}
+.pic:hover::before{
+    margin-top: 0;
+    opacity: 1;
+}
+#check1:checked ~ .container .photo-gallery .pic{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: .5s;
+}
+#check2:checked ~ .container .photo-gallery .family{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+#check2:checked ~ .container .photo-gallery .child,
+#check2:checked ~ .container .photo-gallery .place{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: .0;
+}
+#check3:checked ~ .container .photo-gallery .child{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+#check3:checked ~ .container .photo-gallery .family,
+#check3:checked ~ .container .photo-gallery .place{
+
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: .0;
+}
+#check4:checked ~ .container .photo-gallery .place{
+    transform: scale(1);
+    opacity: 1;
+    position: relative;
+}
+#check4:checked ~ .container .photo-gallery .family,
+#check4:checked ~ .container .photo-gallery .child{
+
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: .0;
+}
+
+/* Contact Section */
+#contact{
+    display:flex;
+    flex-direction: column;
+    background-color: burlywood;
+    height: auto;
+}
+#contact h1{
+    margin: 50px;
+}
+.socialicons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}    
+.input{
+    padding: 15px 20px;
+    margin: 15px;
+    width: 40%;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+}
+#message{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 20px;
+}
+#submit{
+    padding: 15px 20px;
+    margin: 30px;
+    width: 15%;
+    border-radius: 20px;
+    background-color: #000000dc;
+    color: white;
+    border: none;
+    outline: none;
+}
+#submit:hover{
+    background-color: burlywood;
+    color:white;
+    cursor: pointer;
+}
